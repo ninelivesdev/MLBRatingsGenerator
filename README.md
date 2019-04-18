@@ -1,4 +1,4 @@
-# MLBRatingsGenerator
+# MLB Ratings Generator
 Generates ratings for the PS4 game "MLB: The Show" based on real player statistics.
 
 # Built With
