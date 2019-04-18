@@ -9,39 +9,52 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class ProspectAdjusterTest
 {
   private ProspectAdjuster adjuster;
+  private int initialPowerRating;
+  private int expectedResult;
+  private int result;
 
   @BeforeEach
   void setUp()
-  { adjuster = new ProspectAdjuster(); }
+  {
+    adjuster = new ProspectAdjuster();
+    initialPowerRating = 0;
+    expectedResult = 0;
+    result = 0;
+  }
 
   @Test
   void testApplyProspectAdjustment_power_topProspect()
   {
-    final int POWER_RATING = 91;
-    final int EXP_RESULT = 66;
-    final int RESULT = adjuster.applyProspectAdjustment(POWER_RATING);
-    assertEquals(EXP_RESULT, RESULT);
+    initialPowerRating = 91;
+    expectedResult = 66;
+    result = adjuster.applyProspectAdjustment(initialPowerRating);
+    assertEquals(expectedResult, result);
   }
 
   @Test
   void testApplyProspectAdjustment_power_averageProspect()
   {
-    final int POWER_RATING = 68;
-    final int EXP_RESULT = 43;
-    final int RESULT = adjuster.applyProspectAdjustment(POWER_RATING);
-    assertEquals(EXP_RESULT, RESULT);
+    initialPowerRating = 68;
+    expectedResult = 43;
+    result = adjuster.applyProspectAdjustment(initialPowerRating);
+    assertEquals(expectedResult, result);
   }
 
   @Test
   void testApplyProspectAdjustment_power_lowProspect()
   {
-    final int POWER_RATING = 39;
-    final int EXP_RESULT = 14;
-    final int RESULT = adjuster.applyProspectAdjustment(POWER_RATING);
-    assertEquals(EXP_RESULT, RESULT);
+    initialPowerRating = 39;
+    expectedResult = 14;
+    result = adjuster.applyProspectAdjustment(initialPowerRating);
+    assertEquals(expectedResult, result);
   }
 
   @AfterEach
   void tearDown()
-  { adjuster = null; }
+  {
+    adjuster = null;
+    initialPowerRating = 0;
+    expectedResult = 0;
+    result = 0;
+  }
 }

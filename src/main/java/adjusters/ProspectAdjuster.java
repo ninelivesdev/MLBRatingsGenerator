@@ -3,7 +3,7 @@ package adjusters;
 import managers.ResourceManager;
 
 /**
- * Adjusts a player's generated rating in the event they are considered a minor league prospect
+ * Adjusts a player's generated rating if they are a minor league prospect
  */
 public class ProspectAdjuster
 {
@@ -14,11 +14,11 @@ public class ProspectAdjuster
   { }
 
   /**
-   * Subtracts a modifier value from the generated power rating to produce a prospect rating
+   * Subtracts a fixed modifier value from the generated rating to produce a prospect rating
    *
-   * @param   POWER_RATING    power rating generated based on stats
-   * @return  prospect's power rating with the adjustment applied
+   * @param   INITIAL_RATING    initial rating generated
+   * @return  adjusted power rating
    */
-  public int applyProspectAdjustment(final int POWER_RATING)
-  { return (POWER_RATING - MODIFIER); }
+  public int applyProspectAdjustment(final int INITIAL_RATING)
+  { return (INITIAL_RATING - MODIFIER); }
 }

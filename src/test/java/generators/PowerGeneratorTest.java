@@ -8,42 +8,52 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class PowerGeneratorTest
 {
   private PowerGenerator generator;
+  private int homeruns;
+  private int atbats;
+  private int expectedResult;
+  private int result;
 
   @BeforeEach
   void setUp()
   { generator = new PowerGenerator(); }
 
   @Test
-  void testGetPowerRating_bigPowerHitter()
+  void testGetPowerRating_greatHitter()
   {
-    final int HR = 44;
-    final int AB = 462;
-    final int EXP_RESULT = 100;
-    final int RESULT = generator.getPowerRating(HR, AB);
-    assertEquals(EXP_RESULT, RESULT);
+    homeruns = 44;
+    atbats = 462;
+    expectedResult = 100;
+    result = generator.getPowerRating(homeruns, atbats);
+    assertEquals(expectedResult, result);
   }
 
   @Test
-  void testGetPowerRating_averagePowerHitter()
+  void testGetPowerRating_averageHitter()
   {
-    final int HR = 18;
-    final int AB = 325;
-    final int EXP_RESULT = 71;
-    final int RESULT = generator.getPowerRating(HR, AB);
-    assertEquals(EXP_RESULT, RESULT);
+    homeruns = 18;
+    atbats = 325;
+    expectedResult = 71;
+    result = generator.getPowerRating(homeruns, atbats);
+    assertEquals(expectedResult, result);
   }
 
   @Test
-  void testGetPowerRating_poorPowerHitter()
+  void testGetPowerRating_poorHitter()
   {
-    final int HR = 6;
-    final int AB = 409;
-    final int EXP_RESULT = 40;
-    final int RESULT = generator.getPowerRating(HR, AB);
-    assertEquals(EXP_RESULT, RESULT);
+    homeruns = 6;
+    atbats = 409;
+    expectedResult = 40;
+    result = generator.getPowerRating(homeruns, atbats);
+    assertEquals(expectedResult, result);
   }
 
   @AfterEach
   void tearDown()
-  { generator = null; }
+  {
+    generator = null;
+    homeruns = 0;
+    atbats = 0;
+    expectedResult = 0;
+    result = 0;
+  }
 }

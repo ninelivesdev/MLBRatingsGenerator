@@ -9,6 +9,9 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class ContactGeneratorTest
 {
   private ContactGenerator generator;
+  private double battingAverage;
+  private int expectedResult;
+  private int result;
 
   @BeforeEach
   void setUp()
@@ -17,31 +20,36 @@ class ContactGeneratorTest
   @Test
   void testGetContactRating_greatHitter()
   {
-    final double BATTING_AVERAGE = 0.338;
-    final int EXP_RESULT = 91;
-    final int RESULT = generator.getContactRating(BATTING_AVERAGE);
-    assertEquals(EXP_RESULT, RESULT);
+    battingAverage = 0.338;
+    expectedResult = 91;
+    result = generator.getContactRating(battingAverage);
+    assertEquals(expectedResult, result);
   }
 
   @Test
   void testGetContactRating_averageHitter()
   {
-    final double BATTING_AVERAGE = 0.278;
-    final int EXP_RESULT = 75;
-    final int RESULT = generator.getContactRating(BATTING_AVERAGE);
-    assertEquals(EXP_RESULT, RESULT);
+    battingAverage = 0.278;
+    expectedResult = 75;
+    result = generator.getContactRating(battingAverage);
+    assertEquals(expectedResult, result);
   }
 
   @Test
   void testGetContactRating_poorHitter()
   {
-    final double BATTING_AVERAGE = 0.219;
-    final int EXP_RESULT = 59;
-    final int RESULT = generator.getContactRating(BATTING_AVERAGE);
-    assertEquals(EXP_RESULT, RESULT);
+    battingAverage = 0.219;
+    expectedResult = 59;
+    result = generator.getContactRating(battingAverage);
+    assertEquals(expectedResult, result);
   }
 
   @AfterEach
   void tearDown()
-  { generator = null; }
+  {
+    generator = null;
+    battingAverage = 0;
+    expectedResult = 0;
+    result = 0;
+  }
 }
