@@ -8,26 +8,22 @@ import managers.ResourceManager;
 public class PowerGenerator
 {
   private final ResourceManager MGR = ResourceManager.getInstance();
-  private final double INCREMENT_VALUE_POWER = Double.parseDouble(MGR.getValue("INCREMENT_VALUE_POWER"));
+  private final double POWER_INTERVAL = Double.parseDouble(MGR.getValue("POWER_INTERVAL"));
+  private final double POWER_MIN = Double.parseDouble(MGR.getValue("POWER_MIN"));
 
-  public PowerGenerator()
-  { }
+  public PowerGenerator() { }
 
   /**
-   * Gets a player's power rating by:
-   *    1.  Dividing the passed in HR by AB to calculate a HR-to-AB ratio
-   *    2.  Dividing the HR-to-AB ratio by the fixed increment value (HR-to-AB value per game rating point)
-   *    3.  Adding the result to the base value (lowest game rating)
+   * Generates a player's power rating
    *
-   * @param   HR    home runs the player hit
-   * @param   AB    number of at bats needed to hit HR value
-   * @return  integer value between 30 and 99 depicting the player's power rating
+   * @param   HOMERUNS    homeruns hit
+   * @param   ATBATS      at-bats needed to hit HOMERUNS
+   * @return  power rating as an integer, scaled 0-99
    */
-  public int getPowerRating(final int HR, final int AB)
+  public int getPowerRating(final int HOMERUNS, final int ATBATS)
   {
-    final double HR_TO_AB_RATIO = ((double)HR / (double)AB);
-    final int BASE_VALUE = Integer.parseInt(MGR.getValue("BASE_VALUE"));
+    final double HR_TO_AB_RATIO = ((double)HOMERUNS / (double)ATBATS);
 
-    return (int)((HR_TO_AB_RATIO / INCREMENT_VALUE_POWER) + BASE_VALUE);
+    return (int)((HR_TO_AB_RATIO / POWER_INTERVAL) + POWER_MIN);
   }
 }

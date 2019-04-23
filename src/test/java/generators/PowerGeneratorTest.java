@@ -20,9 +20,9 @@ class PowerGeneratorTest
   @Test
   void testGetPowerRating_greatHitter()
   {
-    homeruns = 44;
+    homeruns = 40;
     atbats = 462;
-    expectedResult = 100;
+    expectedResult = 98;
     result = generator.getPowerRating(homeruns, atbats);
     assertEquals(expectedResult, result);
   }
@@ -32,7 +32,7 @@ class PowerGeneratorTest
   {
     homeruns = 18;
     atbats = 325;
-    expectedResult = 71;
+    expectedResult = 73;
     result = generator.getPowerRating(homeruns, atbats);
     assertEquals(expectedResult, result);
   }
@@ -42,7 +42,7 @@ class PowerGeneratorTest
   {
     homeruns = 6;
     atbats = 409;
-    expectedResult = 40;
+    expectedResult = 41;
     result = generator.getPowerRating(homeruns, atbats);
     assertEquals(expectedResult, result);
   }

@@ -8,17 +8,18 @@ import managers.ResourceManager;
 public class ContactGenerator
 {
   private final ResourceManager MGR = ResourceManager.getInstance();
-  private final double INCREMENT_VALUE_CONTACT = Double.parseDouble(MGR.getValue("INCREMENT_VALUE_CONTACT"));
-  
+  private final double CONTACT_INTERVAL = Double.parseDouble(MGR.getValue("CONTACT_INTERVAL"));
+  private final double CONTACT_MIN = Double.parseDouble(MGR.getValue("CONTACT_MIN"));
+
   public ContactGenerator()
   { }
 
   /**
-   * Gets a player's contact rating by dividing batting average by the fixed increment value
+   * Generates a player's contact rating
    *
-   * @param   BATTING_AVERAGE   player's batting average
-   * @return  integer value between 30 and 99 depicting the player's contact rating
+   * @param   BATTING_AVERAGE   batting average
+   * @return  contact rating as an integer, scaled 0-99
    */
   public int getContactRating(final double BATTING_AVERAGE)
-  { return (int)(BATTING_AVERAGE / INCREMENT_VALUE_CONTACT); }
+  { return (int)((BATTING_AVERAGE - CONTACT_MIN) / CONTACT_INTERVAL); }
 }

@@ -14,7 +14,7 @@ public class ProspectAdjuster
   { }
 
   /**
-   * Subtracts a fixed modifier value from the generated rating to produce a prospect rating
+   * Applies a prospect adjustment to a player's rating
    *
    * @param   INITIAL_RATING    initial rating generated
    * @return  adjusted power rating
