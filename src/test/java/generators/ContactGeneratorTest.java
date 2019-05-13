@@ -21,7 +21,7 @@ class ContactGeneratorTest
   void testGetContactRating_greatHitter()
   {
     battingAverage = 0.338;
-    expectedResult = 91;
+    expectedResult = 104;
     result = generator.getContactRating(battingAverage);
     assertEquals(expectedResult, result);
   }
@@ -30,7 +30,7 @@ class ContactGeneratorTest
   void testGetContactRating_averageHitter()
   {
     battingAverage = 0.278;
-    expectedResult = 75;
+    expectedResult = 69;
     result = generator.getContactRating(battingAverage);
     assertEquals(expectedResult, result);
   }
@@ -39,7 +39,7 @@ class ContactGeneratorTest
   void testGetContactRating_poorHitter()
   {
     battingAverage = 0.219;
-    expectedResult = 59;
+    expectedResult = 34;
     result = generator.getContactRating(battingAverage);
     assertEquals(expectedResult, result);
   }
