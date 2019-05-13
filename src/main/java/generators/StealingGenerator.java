@@ -3,7 +3,7 @@ package generators;
 import managers.ResourceManager;
 
 /**
- * Generates a stealing rating for a player based on his stolen base percentage
+ * Generates a modified stealing rating for a player based on his stolen base percentage and number of stolen bases
  */
 public class StealingGenerator
 {
@@ -13,9 +13,23 @@ public class StealingGenerator
 
   public StealingGenerator() { }
 
+  /**
+   * Gets a player's stealing rating
+   *
+   * @param   STOLEN_BASES      number of bases stolen
+   * @param   STOLEN_BASE_PCT   stolen base success rate
+   * @return  modified stealing rating as an integer, scaled from 0-99
+   */
   public int getStealingRating(final int STOLEN_BASES, final int STOLEN_BASE_PCT)
   { return applyStolenBasesModifier(STOLEN_BASES, ((STOLEN_BASE_PCT - STEALING_MIN) / STEALING_INTERVAL)); }
 
+  /**
+   * Applies a modifier value to the stealing rating
+   *
+   * @param   STOLEN_BASES    number of bases stolen
+   * @param   tempRating     initial stealing rating
+   * @return  stealing rating as an integer, scaled 0-99
+   */
   private int applyStolenBasesModifier(final int STOLEN_BASES, double tempRating)
   {
     if (STOLEN_BASES >= 60)

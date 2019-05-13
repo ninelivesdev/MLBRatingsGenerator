@@ -17,7 +17,7 @@ public class FieldingGenerator
    * Generates a player's fielding rating
    *
    * @param   FIELDING_PCT  player's fielding percentage
-   * @return  speed rating as an integer, scaled 0-99
+   * @return  fielding rating as an integer, scaled 0-99
    */
   public int getFieldingRating(final double FIELDING_PCT)
   { return (int)((FIELDING_PCT - FIELDING_MIN) / FIELDING_INTERVAL); }
