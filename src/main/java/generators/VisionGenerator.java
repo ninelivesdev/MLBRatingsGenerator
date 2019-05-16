@@ -3,7 +3,7 @@ package generators;
 import managers.ResourceManager;
 
 /**
- * Generates a vision rating based on his atbats-per-strikeout ratio
+ * Generates a vision rating based on his strikeout(in plate appearances) percentage
  */
 public class VisionGenerator
 {
@@ -17,10 +17,9 @@ public class VisionGenerator
   /**
    * Generates a player's vision rating
    *
-   * @param   PLATE_APPEARANCES   number of official plate appearances
-   * @param   STRIKEOUTS          number of strikeouts in those plate appearances
+   * @param   SO_PCT   strikeouts-in-plate appearances percentage
    * @return  vision rating as an integer, scaled 0-99
    */
-  public int getVisionRating(final double PLATE_APPEARANCES, final double STRIKEOUTS)
-  { return (int) (((PLATE_APPEARANCES / STRIKEOUTS) - VISION_MIN) / VISION_INTERVAL); }
+  public int getVisionRating(final double SO_PCT)
+  { return (int) ((SO_PCT - VISION_MIN) / VISION_INTERVAL); }
 }

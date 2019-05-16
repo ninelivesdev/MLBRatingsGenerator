@@ -6,41 +6,41 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class VisionGeneratorTest
+class DisciplineGeneratorTest
 {
-  private VisionGenerator generator;
+  private DisciplineGenerator generator;
   private double bbPct;
   private int expectedResult;
   private int result;
 
   @BeforeEach
   void setUp()
-  { generator = new VisionGenerator(); }
+  { generator = new DisciplineGenerator(); }
 
   @Test
-  void testGetVisionRating_greatVision()
+  void getDisciplineRating_greatVision()
   {
-    bbPct = 36.1;
-    expectedResult = 97;
-    result = generator.getVisionRating(bbPct);
+    bbPct = 18.7;
+    expectedResult = 93;
+    result = generator.getDisciplineRating(bbPct);
     assertEquals(expectedResult, result);
   }
 
   @Test
-  void testGetVisionRating_averageVision()
+  void getDisciplineRating_averageVision()
   {
-    bbPct = 22.6;
-    expectedResult = 52;
-    result = generator.getVisionRating(bbPct);
+    bbPct = 9.8;
+    expectedResult = 46;
+    result = generator.getDisciplineRating(bbPct);
     assertEquals(expectedResult, result);
   }
 
   @Test
-  void testGetVisionRating_poorVision()
+  void getDisciplineRating_poorVision()
   {
-    bbPct = 8.1;
-    expectedResult = 3;
-    result = generator.getVisionRating(bbPct);
+    bbPct = 2.3;
+    expectedResult = 6;
+    result = generator.getDisciplineRating(bbPct);
     assertEquals(expectedResult, result);
   }
 
